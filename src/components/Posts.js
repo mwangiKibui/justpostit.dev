@@ -1,10 +1,13 @@
 "use client"
 
 import { useEffect, useState } from 'react';
-import supabase from '../../supabase';
+import {initializeSupabase} from '../../supabase';
 
 const PostsComponent = ({postId}) => {
+
   const [posts, setposts] = useState([]);
+
+  const supabase = initializeSupabase(process.env.NEXT_PUBLIC_SUPABASE_URL,process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
 
   useEffect(() => {
     // Subscribe to real-time changes

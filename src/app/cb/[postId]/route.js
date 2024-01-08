@@ -1,6 +1,8 @@
 import {NextResponse} from 'next/server';
-import supabase from '../../../../supabase';
-import { redirect } from 'next/navigation'
+import {initializeSupabase} from '../../../../supabase';
+import { redirect } from 'next/navigation';
+
+const supabase = initializeSupabase(process.env.NEXT_PUBLIC_SUPABASE_URL,process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
 
 export async function GET(request){
     let data = new URL(request.url);
