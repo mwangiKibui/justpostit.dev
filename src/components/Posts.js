@@ -7,6 +7,8 @@ const PostsComponent = ({postId}) => {
 
   const [posts, setposts] = useState([]);
 
+  const [url,setUrl] = useState('');
+
   const supabase = initializeSupabase(process.env.NEXT_PUBLIC_SUPABASE_URL,process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
 
   useEffect(() => {
@@ -29,6 +31,8 @@ const PostsComponent = ({postId}) => {
     })
     .subscribe()
 
+    setUrl(window.location.origin+'cb/'+postId);
+
     // Fetch initial posts
     const fetchposts = async () => {
       const { data, error } = await supabase.from('posts').select('*').eq('postid',postId).order('id', { ascending: false });
@@ -48,9 +52,22 @@ const PostsComponent = ({postId}) => {
   }, []);
 
   return (
-    <div>
+    <div className='w-full'>
 
-      <h2>Your Posts</h2>
+      <div className='flex items-center justify-between'>
+        <p>
+          Your Callback URL is: {url}
+        </p>
+        
+        <button 
+          type="button" 
+          className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+          Copy To Clipboard
+        </button>
+
+      </div>
+
+      <h2 className='text-3xl font-extrabold dark:text-white'>Your Posts:</h2>
 
       <br />
 
