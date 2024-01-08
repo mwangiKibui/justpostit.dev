@@ -9,6 +9,8 @@ const PostsComponent = ({postId}) => {
 
   const [url,setUrl] = useState('');
 
+  const [copyText,setCopyText] = useState("Copy");
+
   const supabase = initializeSupabase(process.env.NEXT_PUBLIC_SUPABASE_URL,process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
 
   useEffect(() => {
@@ -61,13 +63,15 @@ const PostsComponent = ({postId}) => {
         
         <button 
           type="button" 
+          onClick={() => {
+            navigator.clipboard.writeText(url);
+            setCopyText("Copied");
+          }}
           className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-          Copy To Clipboard
+          {copyText}
         </button>
 
       </div>
-
-      <h2 className='text-3xl font-extrabold dark:text-white'>Your Posts:</h2>
 
       <br />
 
