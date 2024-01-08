@@ -12,7 +12,7 @@ export default function Home() {
 
   let url = isClient  ? window.location.href+'cb/'+postId : "";
 
-  let clientUrl = isClient  ? window.location.href+''+postId : "";
+  let clientUrl = isClient  ? window.location.href+'cb/'+postId : "";
 
   return (
     <div>
