@@ -31,7 +31,7 @@ const PostsComponent = ({postId}) => {
     })
     .subscribe()
 
-    setUrl(window.location.origin+'cb/'+postId);
+    setUrl(window.location.origin+'/cb/'+postId);
 
     // Fetch initial posts
     const fetchposts = async () => {
