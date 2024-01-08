@@ -79,15 +79,11 @@ const PostsComponent = ({postId}) => {
 
                 <h4>{`${new Date(post.created_at).toLocaleDateString()} - ${new Date(post.created_at).toLocaleTimeString()}`}</h4>
 
-                
-
-                <textarea 
-                  id="message"
-                  value={post.content}
-                  rows="4" 
-                  readOnly
-                  className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                />
+                <div className='block py-5 px-5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'>
+                  <pre>
+                    {JSON.stringify(JSON.parse(post.content),undefined, 2)}
+                  </pre>
+                </div>
 
                 <br />
 
