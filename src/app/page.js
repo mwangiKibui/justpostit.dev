@@ -3,6 +3,8 @@ import HomeComponent from '../components/Home';
 
 export const metadata = {
   title: 'JustPostIt.dev',
+  description: 'Debug Your Post Requests With Ease!',
+  metadataBase: new URL('https://justpost.dev'),
 }
 
 export default function Home() {

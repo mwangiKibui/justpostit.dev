@@ -2,6 +2,8 @@ import PostsComponent from "@/components/Posts";
 
 export const metadata = {
   title: 'JustPostIt.dev',
+  description: 'Debug Your Post Requests With Ease!',
+  metadataBase: new URL('https://justpost.dev'),
 }
 
 export default function PostsPage({params}) {
