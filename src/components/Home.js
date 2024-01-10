@@ -16,15 +16,15 @@ export default function Home() {
 
   return (
     <div>
-        <h1>
-            Thank you for choosing justPostIt
-        </h1>
-        <p>Post to : {url}</p>
-        <p>
+
+        <p className='mb-3 text-gray-500 dark:text-gray-400'>Post to : {url}</p>
+
+        <p className='text-gray-500 dark:text-gray-400'>
             View Posts from <span>
             <a href={clientUrl} target='_blank'>{clientUrl}</a>
             </span>
         </p>
+
         
     </div>
   )
